@@ -1,9 +1,26 @@
 package ru.netology
 
-fun main(args: Array<String>) {
-    println("провет!")
+import kotlin.math.ceil
 
-    // Try adding program arguments via Run/Debug configuration.
-    // Learn more about running applications: https://www.jetbrains.com/help/idea/running-applications.html.
-    println("Program arguments: ${args.joinToString()}")
+fun main() {
+    val itemPrice = 100_00
+    val itemCount = 12
+    val discountMin = 100_00
+    val discountMax = 0.05
+    val dicountForSingLover = 0.01
+    val ifSingLover = true
+
+    var sum = itemPrice * itemCount
+
+    if(sum > 1000_00 && sum <= 10000_00) {
+        sum -= discountMin
+    } else if (sum > 10000_00) {
+        sum = ceil(sum - sum * discountMax).toInt()
+    }
+
+    if(ifSingLover) {
+        sum = ceil(sum - sum * dicountForSingLover).toInt()
+    }
+
+    println(sum)
 }
